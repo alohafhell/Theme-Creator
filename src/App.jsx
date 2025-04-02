@@ -5,14 +5,14 @@ import { useState } from "react";
 import ColorForm from "./Components/Color/ColorForm";
 
 function App() {
-  const [colors, setColors] = useState(initialColors); //  color data inide state
+  const [colors, setColors] = useState(initialColors); // color data inside state
 
-  // add new color
+  // Add new color
   const addColor = (color) => {
-    setColors([color, ...colors]); // adds the new color top of the list
+    setColors([color, ...colors]); // adds the new color to the list
   };
 
-  // updating  existing color by matching  id
+  // Update existing color by matching id
   const updateColor = (updatedColor) => {
     setColors((prevColors) =>
       prevColors.map(
@@ -21,19 +21,23 @@ function App() {
     );
   };
 
+  // Delete color by id
   const deleteColor = (id) => {
-    setColors(colors.filter((color) => color.id !== id));
+    setColors(colors.filter((color) => color.id !== id)); // filters out the deleted color
   };
+
   return (
     <>
       <h1>Theme Creator</h1>
       <ColorForm onSubmitColor={addColor} /> {/* form to add a new color */}
       {colors.map((color) => (
-  <div key={color.id}>   {/* Wrap both Color components in a parent element */}
-    <Color key={color.id} color={color} onUpdateColor={updateColor} />  
-    <Color key={color.id} color={color} onDelete={deleteColor} />       
-  </div>
-))}
+        <Color
+          key={color.id} // Ensure the key is on the Color component
+          color={color}
+          onUpdateColor={updateColor} // Pass update function
+          onDelete={deleteColor} // Pass delete function
+        />
+      ))}
     </>
   );
 }
