@@ -28,4 +28,6 @@ export const initialColors = [
     hex: "#e0f0fa",
     contrastText: "#000000",
   }, // Soft, light blue-gray
+
+  
 ];
