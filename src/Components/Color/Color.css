@@ -9,3 +9,32 @@
   background: black;
   color: white;
 }
+.color-card {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.color-card-headline {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+h4 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+p {
+  font-size: 14px;
+  color: inherit; /* Inherit the text color from the background */
+}
