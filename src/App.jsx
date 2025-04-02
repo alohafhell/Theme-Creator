@@ -29,12 +29,11 @@ function App() {
       <h1>Theme Creator</h1>
       <ColorForm onSubmitColor={addColor} /> {/* form to add a new color */}
       {colors.map((color) => (
-
-        <Color key={color.id} color={color} onUpdateColor={updateColor} />
-
-        <Color key={color.id} color={color} onDelete={deleteColor} />
-
-      ))}
+  <div key={color.id}>   {/* Wrap both Color components in a parent element */}
+    <Color key={color.id} color={color} onUpdateColor={updateColor} />  
+    <Color key={color.id} color={color} onDelete={deleteColor} />       
+  </div>
+))}
     </>
   );
 }
