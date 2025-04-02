@@ -1,7 +1,7 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
 import "./App.css";
-import { useState } from "react";
+
 import ColorForm from "./Components/Color/ColorForm";
 import useLocalStorageState from "use-local-storage-state";
 
@@ -40,7 +40,7 @@ function App() {
       <ColorForm onSubmitColor={addColor} /> {/* Form to add a new color */}
       {colors.map((color) => (
         <Color
-          key={color.id} // Ensure the key is unique for each color
+          key={color.id}
           color={color}
           onUpdateColor={updateColor} // Pass update function
           onDelete={deleteColor} // Pass delete function
