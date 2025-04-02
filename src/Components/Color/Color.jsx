@@ -2,7 +2,7 @@ import "./Color.css";
 import { useState } from "react";
 import ColorForm from "./ColorForm";
 
-export default function Color({ color, onUpdateColor }) {
+export default function Color({ color, onUpdateColor, onDelete }) {
   const [isEditing, setIsEditing] = useState(false); // toggle between edit mode and view mode
 
   // enable editing when the edit button is clicked
@@ -15,47 +15,41 @@ export default function Color({ color, onUpdateColor }) {
     setIsEditing(false); // set isEditing to false so it hides the form
   };
 
-  //  color update and send it to the parent component
+  // color update and send it to the parent component
   const handleUpdateColor = (updatedColor) => {
-    onUpdateColor(updatedColor); // pass the updated color to the parent comp
+    onUpdateColor(updatedColor); // pass the updated color to the parent component
     setIsEditing(false); // close the edit form after updating the color
   };
-
-
-export default function Color({ color, onDelete }) {
 
   return (
     <div
       className="color-card"
       style={{
         background: color.hex, // setting background to the color's hex value
-        color: color.contrastText, // setting text color to the colors contrastText
+        color: color.contrastText, // setting text color to the color's contrastText
       }}
     >
       <h3 className="color-card-headline">{color.hex}</h3>
       <h4>{color.role}</h4>
-
       <p>Contrast: {color.contrastText}</p>
-      <button onClick={handleEdit}>Edit</button>{" "}
-      {/* Edit button triggers edit mode */}
+
+      <button onClick={handleEdit}>Edit</button>
+
       {/* Show the form only when isEditing is true */}
       {isEditing && (
         <div className="edit-form">
           <ColorForm
             onSubmitColor={handleUpdateColor} // pass handleUpdateColor to submit updated color
-            initialRole={color.role} // pass the colors current role
-            initialHex={color.hex} // pass the colors current hex
-            initialContrastText={color.contrastText} // pass the colors current contrastText
-            id={color.id} // pass the colors id for updates
+            initialRole={color.role} // pass the color's current role
+            initialHex={color.hex} // pass the color's current hex
+            initialContrastText={color.contrastText} // pass the color's current contrastText
+            id={color.id} // pass the color's id for updates
           />
           <button onClick={handleCancel}>Cancel</button> {/* cancel edit */}
         </div>
       )}
 
-      <p>contrast: {color.contrastText}</p>
-
       <button onClick={() => onDelete(color.id)}>Delete</button>
-
     </div>
   );
 }
