@@ -21,6 +21,9 @@ export default function Color({ color, onUpdateColor }) {
     setIsEditing(false); // close the edit form after updating the color
   };
 
+
+export default function Color({ color, onDelete }) {
+
   return (
     <div
       className="color-card"
@@ -31,6 +34,7 @@ export default function Color({ color, onUpdateColor }) {
     >
       <h3 className="color-card-headline">{color.hex}</h3>
       <h4>{color.role}</h4>
+
       <p>Contrast: {color.contrastText}</p>
       <button onClick={handleEdit}>Edit</button>{" "}
       {/* Edit button triggers edit mode */}
@@ -47,6 +51,11 @@ export default function Color({ color, onUpdateColor }) {
           <button onClick={handleCancel}>Cancel</button> {/* cancel edit */}
         </div>
       )}
+
+      <p>contrast: {color.contrastText}</p>
+
+      <button onClick={() => onDelete(color.id)}>Delete</button>
+
     </div>
   );
 }
