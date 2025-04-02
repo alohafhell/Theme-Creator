@@ -26,7 +26,7 @@ function App() {
 
   // Delete color by id
   const deleteColor = (id) => {
-    setColors(colors.filter((color) => color.id !== id)); // filters out the deleted color
+    setColors((prevColors) => prevColors.filter((color) => color.id !== id));
   };
 
   return (
