@@ -8,34 +8,39 @@ import useLocalStorageState from "use-local-storage-state";
 function App() {
   const [colors, setColors] = useLocalStorageState("colors", {
     defaultValue: initialColors,
-  }); // color data inside state
+  }); // Color data inside state
 
   // Add new color
   const addColor = (color) => {
-    setColors([color, ...colors]); // adds the new color to the list
+    setColors([color, ...colors]); // Adds the new color to the list
   };
 
   // Update existing color by matching id
   const updateColor = (updatedColor) => {
     setColors((prevColors) =>
       prevColors.map(
-        (color) => (color.id === updatedColor.id ? updatedColor : color) // updates color by matching id
+        (color) => (color.id === updatedColor.id ? updatedColor : color) // Updates color by matching id
       )
     );
   };
 
   // Delete color by id
   const deleteColor = (id) => {
-    setColors((prevColors) => prevColors.filter((color) => color.id !== id));
+    // Filtering only the color with the matching id
+    setColors((prevColors) => {
+      const updatedColors = prevColors.filter((color) => color.id !== id);
+      console.log("Remaining colors after deletion:", updatedColors); // Debug log
+      return updatedColors;
+    });
   };
 
   return (
     <>
       <h1>Theme Creator</h1>
-      <ColorForm onSubmitColor={addColor} /> {/* form to add a new color */}
+      <ColorForm onSubmitColor={addColor} /> {/* Form to add a new color */}
       {colors.map((color) => (
         <Color
-          key={color.id} // Ensure the key is on the Color component
+          key={color.id} // Ensure the key is unique for each color
           color={color}
           onUpdateColor={updateColor} // Pass update function
           onDelete={deleteColor} // Pass delete function
