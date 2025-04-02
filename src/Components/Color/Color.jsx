@@ -1,5 +1,4 @@
 import "./Color.css";
-import React from "react";
 
 export default function Color({ color }) {
   return (

@@ -2,19 +2,3 @@ body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   padding: 10px;
 }
-.app {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 20px;
-}
-
-h1 {
-  color: #333;
-}
-
-.color-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
-}
