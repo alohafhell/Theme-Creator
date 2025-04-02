@@ -1,31 +1,37 @@
 import ColorInput from "./ColorInput";
 import "./ColorForm.css";
-import { useState } from "react";
-import { nanoid } from "nanoid";
+import { useEffect, useState } from "react"; // import useEffect for resetting state
 
-export default function ColorForm({ onSubmitColor }) {
-  const [role, setRole] = useState("");
-  const [hex, setHex] = useState("#000000");
-  const [contrastText, setConstrastText] = useState("#FFFFFF");
+export default function ColorForm({
+  onSubmitColor,
+  initialRole = "",
+  initialHex = "#000000",
+  initialContrastText = "#FFFFFF",
+  id, // color ID passed for editing
+}) {
+  const [role, setRole] = useState(initialRole); // state for role
+  const [hex, setHex] = useState(initialHex); // state for hex color
+  const [contrastText, setConstrastText] = useState(initialContrastText); // state for contrast text
+
+  // to reset form values when props change (for editing)
+  useEffect(() => {
+    setRole(initialRole); // reset role state
+    setHex(initialHex); // reset hex value
+    setConstrastText(initialContrastText); // reset contrast text
+  }, [initialRole, initialHex, initialContrastText]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    //new color creation from values
-    const newColor = {
-      id: nanoid(),
+    // creating the updated color
+    const updatedColor = {
+      id, // passing the existing id to update the color
       role,
       hex,
       contrastText,
     };
 
-    //new color for parent comp
-    onSubmitColor(newColor);
-
-    //reset form after submitting
-    setRole("");
-    setHex("#000000");
-    setConstrastText("#FFFFFF");
+    onSubmitColor(updatedColor); // submiting the updated color to the parent comp
   };
 
   return (
@@ -34,31 +40,28 @@ export default function ColorForm({ onSubmitColor }) {
         Role
         <input
           type="text"
-          id="role"
-          onChange={(e) => setRole(e.target.value)}
+          value={role}
+          onChange={(e) => setRole(e.target.value)} // update role state
           placeholder="e.g., primary main"
         />
       </label>
-
       <label>
         Hex Value
         <br />
         <ColorInput
-          id="hex"
           value={hex}
-          onChange={(e) => setHex(e.target.value)}
+          onChange={(e) => setHex(e.target.value)} // update hex state
         />
       </label>
-
       <label htmlFor="contrastText">
         Contrast Text
         <ColorInput
-          id="contrastText"
           value={contrastText}
-          onChange={(e) => setConstrastText(e.target.value)}
+          onChange={(e) => setConstrastText(e.target.value)} // update contrastText state
         />
       </label>
-      <button>ADD COLOR</button>
+      <button>{initialRole ? "Update Color" : "Add Color"}</button>{" "}
+      {/* button text will depend on if its editing or adding */}
     </form>
   );
 }
