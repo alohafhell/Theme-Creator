@@ -1,6 +1,7 @@
 import "./Color.css";
 import { useState } from "react";
 import ColorForm from "./ColorForm";
+import CopyToClipboard from "./CopyToClipBoard";
 
 export default function Color({ color, onUpdateColor, onDelete }) {
   const [isEditing, setIsEditing] = useState(false); // toggle between edit mode and view mode
@@ -33,6 +34,7 @@ export default function Color({ color, onUpdateColor, onDelete }) {
       <h4>{color.role}</h4>
       <p>Contrast: {color.contrastText}</p>
 
+      <CopyToClipboard hex={color.hex} />
       <button onClick={handleEdit}>Edit</button>
 
       {/* Show the form only when isEditing is true */}
