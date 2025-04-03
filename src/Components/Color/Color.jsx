@@ -30,13 +30,19 @@ export default function Color({ color, onUpdateColor, onDelete }) {
         color: color.contrastText, // setting text color to the color's contrastText
       }}
     >
-      <h3 className="color-card-headline">{color.hex}</h3>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "left",
+          alignItems: "center",
+        }}
+      >
+        <h3 className="color-card-headline">{color.hex}</h3>
+        <CopyToClipboard hex={color.hex} />
+      </div>
       <h4>{color.role}</h4>
       <p>Contrast: {color.contrastText}</p>
-
-      <CopyToClipboard hex={color.hex} />
       <button onClick={handleEdit}>Edit</button>
-
       {/* Show the form only when isEditing is true */}
       {isEditing && (
         <div className="edit-form">
