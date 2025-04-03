@@ -12,6 +12,7 @@ function App() {
 
   // Add new color
   const addColor = (color) => {
+    console.log(color);
     setColors([color, ...colors]); // Adds the new color to the list
   };
 

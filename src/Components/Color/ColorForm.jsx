@@ -1,6 +1,7 @@
 import ColorInput from "./ColorInput";
 import "./ColorForm.css";
 import { useEffect, useState } from "react"; // import useEffect for resetting state
+import { nanoid } from "nanoid";
 
 export default function ColorForm({
   onSubmitColor,
@@ -25,7 +26,7 @@ export default function ColorForm({
 
     // creating the updated color
     const updatedColor = {
-      id, // passing the existing id to update the color
+      id: nanoid(), // passing the existing id to update the color
       role,
       hex,
       contrastText,
