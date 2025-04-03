@@ -8,7 +8,6 @@ export default function ColorForm({
   initialRole = "",
   initialHex = "#000000",
   initialContrastText = "#FFFFFF",
-  id, // color ID passed for editing
 }) {
   const [role, setRole] = useState(initialRole); // state for role
   const [hex, setHex] = useState(initialHex); // state for hex color

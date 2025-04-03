@@ -1,6 +1,7 @@
 import "./Color.css";
 import { useState } from "react";
 import ColorForm from "./ColorForm";
+import CopyToClipboard from "./CopyToClipBoard";
 
 export default function Color({ color, onUpdateColor, onDelete }) {
   const [isEditing, setIsEditing] = useState(false); // toggle between edit mode and view mode
@@ -29,12 +30,19 @@ export default function Color({ color, onUpdateColor, onDelete }) {
         color: color.contrastText, // setting text color to the color's contrastText
       }}
     >
-      <h3 className="color-card-headline">{color.hex}</h3>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "left",
+          alignItems: "center",
+        }}
+      >
+        <h3 className="color-card-headline">{color.hex}</h3>
+        <CopyToClipboard hex={color.hex} />
+      </div>
       <h4>{color.role}</h4>
       <p>Contrast: {color.contrastText}</p>
-
       <button onClick={handleEdit}>Edit</button>
-
       {/* Show the form only when isEditing is true */}
       {isEditing && (
         <div className="edit-form">
