@@ -1,4 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background-color: #f7f7f7; /* Light pastel background */
+  color: #e52323; /* Dark text for contrast */
+  font-family: "Arial", sans-serif; /* Clean, modern font */
+  line-height: 1.6;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 10px;
+  min-height: 100vh;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3rem;
+  color: #ff6fa1; /* Soft pink, like Taylor Swift's 1989 aesthetic */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 5px rgba(255, 111, 161, 0.3); /* Soft glowing effect */
+}
+
+button {
+  background-color: #ff6fa1; /* Soft pink */
+  color: white;
+  padding: 12px 24px;
+  border: 2px solid #ff6fa1; /* Matching border */
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 10px;
+  box-shadow: 0px 4px 10px rgba(255, 111, 161, 0.3); /* Soft glowing shadow */
+}
+
+button:hover {
+  background-color: transparent;
+  color: #ff6fa1;
+  box-shadow: 0px 0px 15px rgba(255, 111, 161, 0.6); /* Brighter glowing effect */
+}
+
+button.copied {
+  background-color: #98c8e8; /* Light blue, cooler tone */
+  color: #333;
+  box-shadow: 0px 0px 12px rgba(152, 200, 232, 0.3);
+}
+
+p {
+  font-size: 1.2rem;
+  color: #ff6fa1; /* Soft pink */
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(255, 111, 161, 0.6); /* Glowing text effect */
 }
