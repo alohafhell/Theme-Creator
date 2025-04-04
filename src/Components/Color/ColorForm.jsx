@@ -8,6 +8,7 @@ export default function ColorForm({
   initialRole = "",
   initialHex = "#000000",
   initialContrastText = "#FFFFFF",
+  id,
 }) {
   const [role, setRole] = useState(initialRole); // state for role
   const [hex, setHex] = useState(initialHex); // state for hex color
@@ -22,10 +23,10 @@ export default function ColorForm({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    console.log(id, "idname");
     // creating the updated color
     const updatedColor = {
-      id: nanoid(), // passing the existing id to update the color
+      id: id || nanoid(), // passing the existing id to update the color
       role,
       hex,
       contrastText,

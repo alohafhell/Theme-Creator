@@ -27,13 +27,13 @@ export default function CopyToClipboard({ hex }) {
   }, [isCopied]);
 
   return (
-    <div>
+    <div style={{ display: "flex", alignItems: "center" }}>
       {/* "copy" button */}
       <button onClick={handleCopy}>Copy</button>
 
       {/* confirmation message */}
       {isCopied && (
-        <p style={{ color: "white", fontSize: "14px", marginTop: "5px" }}>
+        <p style={{ color: "#f79ac6", fontSize: "14px", marginTop: "5px" }}>
           Copied! ✨
         </p>
       )}

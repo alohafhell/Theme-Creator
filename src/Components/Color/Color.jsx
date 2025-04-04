@@ -4,7 +4,8 @@ import ColorForm from "./ColorForm";
 import CopyToClipboard from "./CopyToClipBoard";
 
 export default function Color({ color, onUpdateColor, onDelete }) {
-  const [isEditing, setIsEditing] = useState(false); // toggle between edit mode and view mode
+  const [isEditing, setIsEditing] = useState(false);
+  const [isConfirmingDelete, setIsConfirmingDelete] = useState(false); // toggle between edit mode and view mode
 
   // enable editing when the edit button is clicked
   const handleEdit = (e) => {
@@ -24,7 +25,20 @@ export default function Color({ color, onUpdateColor, onDelete }) {
     setIsEditing(false);
     // close the edit form after updating the color
   };
+  const handleDeleteConfirmation = () => {
+    setIsConfirmingDelete(true); // Show confirmation
+  };
 
+  // Cancel deletion
+  const handleCancelDelete = () => {
+    setIsConfirmingDelete(false); // Hide confirmation
+  };
+
+  // Proceed with the deletion
+  const handleConfirmDelete = () => {
+    onDelete(color.id);
+    setIsConfirmingDelete(false); // Hide confirmation
+  };
   return (
     <div
       className="color-card"
@@ -50,7 +64,9 @@ export default function Color({ color, onUpdateColor, onDelete }) {
         <CopyToClipboard hex={color.hex} />
       </div>
       <h4>{color.role}</h4>
-      <p>Contrast: {color.contrastText}</p>
+      <p style={{ color: color.contrastText }}>
+        Contrast: {color.contrastText}
+      </p>
       <button onClick={handleEdit}>Edit</button>
       {/* Show the form only when isEditing is true */}
       {isEditing && (
@@ -66,7 +82,15 @@ export default function Color({ color, onUpdateColor, onDelete }) {
         </div>
       )}
 
-      <button onClick={() => onDelete(color.id)}>Delete</button>
+      {isConfirmingDelete ? (
+        <div>
+          <div className="delete-confirmation">Are you ready for it? 🐍</div>
+          <button onClick={handleConfirmDelete}>Yes, delete</button>
+          <button onClick={handleCancelDelete}>Cancel</button>
+        </div>
+      ) : (
+        <button onClick={handleDeleteConfirmation}>Delete</button>
+      )}
     </div>
   );
 }
