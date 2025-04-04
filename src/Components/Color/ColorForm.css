@@ -1,0 +1,51 @@
+/* General form styling */
+.color-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f9f9f9; /* Softer background */
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow for depth */
+  max-width: 420px;
+  margin: auto;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+/* Hover effect on the form container */
+.color-form:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Label styling */
+.color-form label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #444; /* Slightly darker text for better readability */
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Input field styling */
+.color-form input {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add color input specific styling */
+.color-form input[type="text"] {
+  height: 45px;
+  font-size: 16px;
+}
+
+/* Add color input for color pickers */
+.color-form input[type="color"] {
+  height: 45px;
+}

@@ -1,0 +1,53 @@
+/* Container for the Copy button */
+.copy-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Copy button style */
+.copy-button {
+  background-color: #ff6fa1; /* Pink color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px; /* Rounded corners */
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.copy-button:hover {
+  background-color: #f79ac6; /* Lighter pink on hover */
+  transform: scale(1.05); /* Slightly enlarge button */
+}
+
+.copy-button.copied {
+  background-color: #98c8e8; /* Light blue color when copied */
+}
+
+.copy-button.copied:hover {
+  background-color: #74a7be; /* Lighter blue on hover */
+}
+
+/* Confirmation message style */
+.confirmation-message {
+  color: #fff;
+  background-color: #28a745; /* Green color for success */
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.confirmation-message.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
