@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./CopyToClipBoard.css";
 
 export default function CopyToClipboard({ hex }) {
   // to state to handle if the confirmation message should be shown
