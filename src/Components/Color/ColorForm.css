@@ -2,50 +2,96 @@
 .color-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  background-color: #f9f9f9; /* Softer background */
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow for depth */
-  max-width: 420px;
+  gap: 15px;
+  background-color: #f3f3f3; /* Light background for the form */
+  padding: 15px; /* Reduced padding for a more compact form */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+  max-width: 400px;
   margin: auto;
-  transition: all 0.3s ease;
-  margin-bottom: 20px;
-}
-
-/* Hover effect on the form container */
-.color-form:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
 /* Label styling */
 .color-form label {
   font-size: 16px;
   font-weight: 600;
-  color: #444; /* Slightly darker text for better readability */
-  margin-bottom: 8px;
+  color: #333;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 }
 
 /* Input field styling */
 .color-form input {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
   border: 1px solid #ccc;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 /* Add color input specific styling */
 .color-form input[type="text"] {
-  height: 45px;
-  font-size: 16px;
+  height: 40px;
 }
 
 /* Add color input for color pickers */
 .color-form input[type="color"] {
-  height: 45px;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}
+
+/* Change border color when focusing on input */
+.color-form input:focus {
+  border-color: #ff6fa1;
+}
+
+/* Arrange color pickers horizontally */
+.color-form .color-picker-container {
+  display: flex;
+  gap: 15px; /* Space between the color pickers */
+  align-items: center; /* Align the items in the center vertically */
+}
+
+/* Button styling */
+.color-form button {
+  background-color: #ff6fa1;
+  color: white;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+/* Button hover effect */
+.color-form button:hover {
+  background-color: #e55f91; /* Slightly darker pink */
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 500px) {
+  .color-form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .color-form label {
+    font-size: 14px;
+  }
+
+  .color-form input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .color-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
